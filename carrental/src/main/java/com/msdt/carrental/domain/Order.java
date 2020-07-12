@@ -1,6 +1,5 @@
-package com.epam.carrental.domain;
+package com.msdt.carrental.domain;
 
-import java.math.BigDecimal;
 import java.sql.Date;
 
 public class Order {
@@ -11,14 +10,15 @@ public class Order {
 	private Date orderDate;
 	private Date returnDate;
 	private boolean carReturned;
-	private BigDecimal rentalcost;
+	private double rentalcost;
 
 	public Order() {
-		super();
+
 	}
 
-	public Order(final long userId, final long carId, final Date orderDate, final Date returnDate, final boolean carReturned, final BigDecimal rentalcost) {
-		super();
+	public Order(final long userId, final long carId, final Date orderDate, final Date returnDate,
+			final boolean carReturned, final double rentalcost) {
+
 		this.userId = userId;
 		this.carId = carId;
 		this.orderDate = orderDate;
@@ -27,9 +27,9 @@ public class Order {
 		this.rentalcost = rentalcost;
 	}
 
-	public Order(final long orderId, final long userId, final long carId, final Date orderDate, final Date returnDate, final boolean carReturned,
-			final BigDecimal rentalcost) {
-		super();
+	public Order(final long orderId, final long userId, final long carId, final Date orderDate, final Date returnDate,
+			final boolean carReturned, final double rentalcost) {
+
 		this.orderId = orderId;
 		this.userId = userId;
 		this.carId = carId;
@@ -87,11 +87,11 @@ public class Order {
 		this.carReturned = carReturned;
 	}
 
-	public BigDecimal getRentalcost() {
+	public double getRentalcost() {
 		return rentalcost;
 	}
 
-	public void setRentalcost(final BigDecimal rentalcost) {
+	public void setRentalcost(final double rentalcost) {
 		this.rentalcost = rentalcost;
 	}
 
@@ -109,7 +109,9 @@ public class Order {
 		result = (prime * result) + (carReturned ? 1231 : 1237);
 		result = (prime * result) + ((orderDate == null) ? 0 : orderDate.hashCode());
 		result = (prime * result) + (int) (orderId ^ (orderId >>> 32));
-		result = (prime * result) + ((rentalcost == null) ? 0 : rentalcost.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(rentalcost);
+		result = (prime * result) + (int) (temp ^ (temp >>> 32));
 		result = (prime * result) + ((returnDate == null) ? 0 : returnDate.hashCode());
 		result = (prime * result) + (int) (userId ^ (userId >>> 32));
 		return result;
@@ -143,11 +145,7 @@ public class Order {
 		if (orderId != other.orderId) {
 			return false;
 		}
-		if (rentalcost == null) {
-			if (other.rentalcost != null) {
-				return false;
-			}
-		} else if (!rentalcost.equals(other.rentalcost)) {
+		if (Double.doubleToLongBits(rentalcost) != Double.doubleToLongBits(other.rentalcost)) {
 			return false;
 		}
 		if (returnDate == null) {

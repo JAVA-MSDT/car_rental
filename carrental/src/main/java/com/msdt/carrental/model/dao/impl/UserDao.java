@@ -1,32 +1,32 @@
-package com.epam.carrental.model.dao.impl;
+package com.msdt.carrental.model.dao.impl;
 
 import java.util.List;
 
-import com.epam.carrental.domain.Order;
-import com.epam.carrental.model.dao.GenericDao;
+import com.msdt.carrental.domain.User;
+import com.msdt.carrental.model.dao.GenericDao;
 
-public class OrderDao implements GenericDao<Order>{
+public class UserDao implements GenericDao<User>{
 
 	@Override
-	public int insertItem(final Order item) {
+	public int insertItem(final User item) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public List<Order> getAllItems() {
+	public List<User> getAllItems() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Order getItemById(final long id) {
+	public User getItemById(final long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int updateItem(final Order item) {
+	public int updateItem(final User item) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

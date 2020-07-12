@@ -1,4 +1,4 @@
-package com.epam.carrental.model.dao;
+package com.msdt.carrental.model.dao;
 
 import java.util.List;
 

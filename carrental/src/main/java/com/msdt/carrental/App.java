@@ -1,7 +1,7 @@
-package com.epam.carrental;
+package com.msdt.carrental;
 
-import com.epam.carrental.domain.User;
-import com.epam.carrental.domain.UserRole;
+import com.msdt.carrental.domain.User;
+import com.msdt.carrental.domain.UserRole;
 
 /**
  * Hello world!

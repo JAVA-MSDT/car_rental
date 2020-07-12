@@ -1,4 +1,4 @@
-package com.epam.carrental.domain;
+package com.msdt.carrental.domain;
 
 public enum UserRole {
 	ADMIN,

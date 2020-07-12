@@ -1,9 +1,9 @@
-package com.epam.carrental.model.dao.impl;
+package com.msdt.carrental.model.dao.impl;
 
 import java.util.List;
 
-import com.epam.carrental.domain.Car;
-import com.epam.carrental.model.dao.GenericDao;
+import com.msdt.carrental.domain.Car;
+import com.msdt.carrental.model.dao.GenericDao;
 
 public class CarDao implements GenericDao<Car>{
 

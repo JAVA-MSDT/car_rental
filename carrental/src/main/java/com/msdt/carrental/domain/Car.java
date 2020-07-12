@@ -1,4 +1,4 @@
-package com.epam.carrental.domain;
+package com.msdt.carrental.domain;
 
 public class Car {
 
@@ -9,11 +9,11 @@ public class Car {
 	private String carCompany;
 
 	public Car() {
-		super();
+
 	}
 
 	public Car(final String carModel, final String carReleaseYear, final String carColor, final String carCompany) {
-		super();
+
 		this.carModel = carModel;
 		this.carReleaseYear = carReleaseYear;
 		this.carColor = carColor;
@@ -21,7 +21,7 @@ public class Car {
 	}
 
 	public Car(final long carId, final String carModel, final String carReleaseYear, final String carColor, final String carCompany) {
-		super();
+
 		this.carId = carId;
 		this.carModel = carModel;
 		this.carReleaseYear = carReleaseYear;

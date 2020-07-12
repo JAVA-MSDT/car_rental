@@ -1,4 +1,4 @@
-package com.epam.carrental.domain;
+package com.msdt.carrental.domain;
 
 public class User {
 
@@ -13,12 +13,12 @@ public class User {
 
 	// Constructors
 	public User() {
-		super();
+
 	}
 
 	public User(final String userName, final String userEmail, final String userPassword, final String userAddress,
 			final boolean userBlocked, final UserRole useRole) {
-		super();
+
 		this.userName = userName;
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
@@ -29,7 +29,7 @@ public class User {
 
 	public User(final long userId, final String userName, final String userEmail, final String userPassword,
 			final String userAddress, final boolean userBlocked, final UserRole useRole) {
-		super();
+
 		this.userId = userId;
 		this.userName = userName;
 		this.userEmail = userEmail;

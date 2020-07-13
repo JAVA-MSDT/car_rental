@@ -1,18 +1,15 @@
 package com.msdt.carrental;
 
-import com.msdt.carrental.domain.User;
-import com.msdt.carrental.domain.UserRole;
+import java.util.Properties;
 
-/**
- * Hello world!
- *
- */
+import com.msdt.carrental.util.PropertiesReader;
+
 public class App {
 	public static void main(final String[] args) {
 
-		User user = new User(1, "Adam", "Emain", "Password ", "Adres", false, UserRole.ADMIN);
+		Properties properties = PropertiesReader.getProperties("src/main/resources/dbconnection.properties");
 
-		System.out.println("User: " + user);
-		System.out.println(user.getUserPassword());
+		System.out.println("File Length: " + properties.size());
+		System.out.println("jdbcUrl: " + properties.getProperty("jdbcUrl"));
 	}
 }

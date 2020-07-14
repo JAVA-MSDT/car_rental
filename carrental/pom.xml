@@ -18,6 +18,14 @@
 	<dependencies>
 
 		<!-- =============================== LOGGERS =============================== -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.11</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- =============================== LOGGERS =============================== -->
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>

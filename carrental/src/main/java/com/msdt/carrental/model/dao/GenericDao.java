@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface GenericDao<T> {
 
+
 	// CREATE
 	int insertItem(T item);
 

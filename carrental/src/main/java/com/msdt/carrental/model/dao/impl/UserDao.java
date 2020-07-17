@@ -4,15 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.msdt.carrental.domain.User;
-import com.msdt.carrental.domain.UserRole;
 import com.msdt.carrental.model.config.DBConnection;
-import com.msdt.carrental.model.dao.GenericDao;
+import com.msdt.carrental.model.dao.AbstractDao;
+import com.msdt.carrental.model.mapping.impl.UserMapper;
 
-public class UserDao implements GenericDao<User> {
+public class UserDao extends AbstractDao<User> {
 
 	private static final String DELETE_USER_BY_ID = "DELETE FROM user_table WHERE user_id = ?";
 
@@ -32,6 +31,7 @@ public class UserDao implements GenericDao<User> {
 	}
 
 	public UserDao(final Connection connection) {
+		super(connection);
 		this.connection = connection;
 	}
 
@@ -57,22 +57,8 @@ public class UserDao implements GenericDao<User> {
 
 	@Override
 	public List<User> getAllItems() {
-		List<User> users = new ArrayList<>();
-		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);
-			ResultSet resultSet = preparedStatement.executeQuery();
 
-			while (resultSet.next()) {
-				User user = getUser(resultSet);
-				users.add(user);
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return users;
+		return queryForObjects(SELECT_ALL_USERS, new UserMapper()); 
 	}
 
 	@Override
@@ -85,7 +71,7 @@ public class UserDao implements GenericDao<User> {
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				user = getUser(resultSet);
+				user = new UserMapper().rowMapper(resultSet);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -131,19 +117,6 @@ public class UserDao implements GenericDao<User> {
 		}
 
 		return 0;
-	}
-
-	private User getUser(final ResultSet resultSet) throws SQLException {
-
-		long userId = resultSet.getLong("user_id");
-		String userName = resultSet.getString("user_name");
-		String userEmail = resultSet.getString("user_email");
-		String userPassword = resultSet.getString("user_password");
-		String userAddress = resultSet.getString("user_address");
-		boolean userBlocked = resultSet.getBoolean("user_blocked");
-		UserRole useRole = UserRole.valueOf(resultSet.getString("user_role"));
-
-		return new User(userId, userName, userEmail, userPassword, userAddress, userBlocked, useRole);
 	}
 
 }

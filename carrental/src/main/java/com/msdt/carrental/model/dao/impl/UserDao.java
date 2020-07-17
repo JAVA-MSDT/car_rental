@@ -20,12 +20,20 @@ public class UserDao implements GenericDao<User> {
 
 	private static final String SELECT_ALL_USERS = "SELECT * FROM user_table";
 
-	private Connection connection = new DBConnection().getConnection();
+	private Connection connection;
 
 	private static final String INSERT_USER = "INSERT INTO user_table (user_name, user_email, user_password, user_address, user_blocked, user_role)"
 			+ " VALUES(?, ?, ?, ?, ?, ?)";
 
 	private static final String UPDATE_USER = "UPDATE user_table SET user_name = ?, user_email = ?, user_password = ?, user_address = ?, user_blocked = ?, user_role = ? WHERE user_id = ?";
+
+	public UserDao() {
+		connection = new DBConnection().getConnection();
+	}
+
+	public UserDao(final Connection connection) {
+		this.connection = connection;
+	}
 
 	@Override
 	public int insertItem(final User item) {

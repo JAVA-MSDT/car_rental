@@ -9,7 +9,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.msdt.carrental.util.PropertiesReader;
-
+/**
+ * Main Database Connection
+ * 
+ * @author Ahmed Samy 
+ * https://github.com/JAVA-MSDT
+ */
 public class DBConnection {
 
 	private static final Logger LOGGER = LogManager.getLogger();

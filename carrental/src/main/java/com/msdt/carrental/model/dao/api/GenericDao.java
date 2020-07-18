@@ -1,7 +1,11 @@
-package com.msdt.carrental.model.dao;
+package com.msdt.carrental.model.dao.api;
 
 import java.util.List;
-
+/**
+ * 
+ * @author Ahmed Samy 
+ * https://github.com/JAVA-MSDT
+ */
 public interface GenericDao<T> {
 
 

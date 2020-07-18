@@ -12,7 +12,12 @@ import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.configuration.FluentConfiguration;
 
 import com.opentable.db.postgres.embedded.EmbeddedPostgres;
-
+/**
+ * Used For Test Only
+ * 
+ * @author Ahmed Samy 
+ * https://github.com/JAVA-MSDT
+ */
 public class DBTestConfig {
 
 	private static final Logger LOGGER = LogManager.getLogger();

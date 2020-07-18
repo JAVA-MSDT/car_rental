@@ -12,6 +12,11 @@ import org.junit.Test;
 import com.msdt.carrental.domain.Car;
 import com.msdt.carrental.model.config.DBTestConfig;
 
+/**
+ * 
+ * @author Ahmed Samy 
+ * https://github.com/JAVA-MSDT
+ */
 public class CarDaoTest {
 
 	private DBTestConfig testConfig = new DBTestConfig();
@@ -42,7 +47,9 @@ public class CarDaoTest {
 
 	@Test
 	public void testInsertItem() throws Exception {
+		Car expectedCar = new Car("Sidan", "2020", "Red", "BMW");
 
+		assertEquals(1, carDao.insertItem(expectedCar));
 	}
 
 	@Test
@@ -62,12 +69,17 @@ public class CarDaoTest {
 
 	@Test
 	public void testUpdateItem() throws Exception {
+		Car expectedCar = new Car(4, "Suburban 2500", "2010", "Brown", "Audi");
 
+		assertEquals(1, carDao.updateItem(expectedCar));
 	}
 
 	@Test
 	public void testDeleteItem() throws Exception {
+		Car expectedCar = new Car("Sidan", "2020", "Red", "BMW");
+		carDao.insertItem(expectedCar);
 
+		assertEquals(1, carDao.deleteItem(101));
 	}
 
 }

@@ -2,6 +2,11 @@ package com.msdt.carrental.domain;
 
 import java.sql.Date;
 
+/**
+ * 
+ * @author Ahmed Samy 
+ * https://github.com/JAVA-MSDT
+ */
 public class Order {
 
 	private long orderId;

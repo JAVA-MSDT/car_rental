@@ -13,6 +13,11 @@ import com.msdt.carrental.domain.User;
 import com.msdt.carrental.domain.UserRole;
 import com.msdt.carrental.model.config.DBTestConfig;
 
+/**
+ * 
+ * @author Ahmed Samy 
+ * https://github.com/JAVA-MSDT
+ */
 public class UserDaoTest {
 
 	private DBTestConfig testConfig = new DBTestConfig();

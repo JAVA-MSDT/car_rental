@@ -6,6 +6,11 @@ import java.sql.SQLException;
 import com.msdt.carrental.domain.Car;
 import com.msdt.carrental.model.mapping.GenericMapper;
 
+/**
+ * 
+ * @author Ahmed Samy 
+ * https://github.com/JAVA-MSDT
+ */
 public class CarMapper implements GenericMapper<Car> {
 
 	@Override

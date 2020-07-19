@@ -1,5 +1,11 @@
 package com.msdt.carrental.model.dao.api;
 
+/**
+ * Custom Exception to be more specific from where we have throwing that exception
+ * 
+ * @author Ahmed Samy 
+ * https://github.com/JAVA-MSDT
+ */
 public class DaoException extends Exception {
 
 	/**

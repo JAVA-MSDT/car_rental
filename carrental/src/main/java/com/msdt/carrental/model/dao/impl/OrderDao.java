@@ -7,10 +7,9 @@ import com.msdt.carrental.model.dao.api.GenericDao;
 
 /**
  * 
- * @author Ahmed Samy 
- * https://github.com/JAVA-MSDT
+ * @author Ahmed Samy https://github.com/JAVA-MSDT
  */
-public class OrderDao implements GenericDao<Order>{
+public class OrderDao implements GenericDao<Order> {
 
 	@Override
 	public int insertItem(final Order item) {

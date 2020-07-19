@@ -38,9 +38,10 @@ public abstract class AbstractDao<T> implements GenericDao<T> {
 	 * @param parameters SQL parameters of the query if it is exists
 	 * @return List of the specified object depends on which class calling that
 	 *         method
+	 * @throws DaoException
 	 */
-	protected List<T> queryForObjects(final String query, final GenericMapper<T> rowMapper,
-			final String... parameters) {
+	protected List<T> queryForObjects(final String query, final GenericMapper<T> rowMapper, final String... parameters)
+			throws DaoException {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 
@@ -56,6 +57,7 @@ public abstract class AbstractDao<T> implements GenericDao<T> {
 			}
 		} catch (SQLException e) {
 			LOGGER.error("Unabling to perform the query: " + e);
+			throw new DaoException("Unabling to perform the query: " + e);
 		} finally {
 			if (resultSet != null) {
 				try {
@@ -63,6 +65,7 @@ public abstract class AbstractDao<T> implements GenericDao<T> {
 					LOGGER.info("Result set Closed Successfully");
 				} catch (SQLException e) {
 					LOGGER.error("Unabling to Close Result Set: " + e);
+					throw new DaoException("Unabling to Close Result Set: " + e);
 				}
 			}
 
@@ -72,6 +75,7 @@ public abstract class AbstractDao<T> implements GenericDao<T> {
 					LOGGER.info("Prepared Statement Closed Successfully");
 				} catch (SQLException e) {
 					LOGGER.error("Unabling to Close Prepared Statement: " + e);
+					throw new DaoException("Unabling to Close Prepared Statement: " + e);
 				}
 			}
 
@@ -87,8 +91,10 @@ public abstract class AbstractDao<T> implements GenericDao<T> {
 	 *                   database table
 	 * @param parameters SQL parameters of the query if it is exists
 	 * @return Object depends on which class calling that method
+	 * @throws DaoException
 	 */
-	protected T queryForObject(final String query, final GenericMapper<T> rowMapper, final String... parameters) {
+	protected T queryForObject(final String query, final GenericMapper<T> rowMapper, final String... parameters)
+			throws DaoException {
 		List<T> items = queryForObjects(query, rowMapper, parameters);
 		if (items.size() == 1) {
 			return items.get(0);
@@ -103,16 +109,17 @@ public abstract class AbstractDao<T> implements GenericDao<T> {
 	 * @param query      To be Performed
 	 * @param parameters SQL parameters of the query to use it for object update
 	 * @return
+	 * @throws DaoException
 	 */
-	protected int executeUpdate(final String query, final String... parameters) {
+	protected int executeUpdate(final String query, final String... parameters) throws DaoException {
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
 
 			fillPreparedStatmentWithObjects(statement, parameters);
 			return statement.executeUpdate();
 		} catch (SQLException e) {
 			LOGGER.error("Unabling to perform the query: " + e);
+			throw new DaoException("Unabling to perform the query: " + e);
 		}
-		return 0;
 	}
 
 	/**

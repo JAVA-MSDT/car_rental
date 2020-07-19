@@ -14,12 +14,12 @@ import com.msdt.carrental.model.config.DBTestConfig;
 
 /**
  * 
- * @author Ahmed Samy 
- * https://github.com/JAVA-MSDT
+ * @author Ahmed Samy https://github.com/JAVA-MSDT
  */
 public class CarDaoTest {
 
 	private DBTestConfig testConfig = new DBTestConfig();
+	private DaoFactory daoFactory = DaoFactory.INSTANCE;
 	private CarDao carDao;
 	private Connection connection;
 
@@ -31,7 +31,8 @@ public class CarDaoTest {
 	@Before
 	public void setUp() throws Exception {
 		connection = testConfig.getConnection();
-		carDao = new CarDao(connection);
+		daoFactory.setConnection(connection);
+		carDao = daoFactory.getCarDao();
 	}
 
 	/**

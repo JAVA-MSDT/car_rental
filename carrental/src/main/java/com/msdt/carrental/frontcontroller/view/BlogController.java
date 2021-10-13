@@ -15,8 +15,6 @@ public class BlogController implements Controller {
 
 		request.setAttribute("blog_post", "Blog Post");
 		resolver.forward(BLOG_JSP);
-		System.out.println("From: " + this.getClass().getSimpleName());
-
 		return resolver;
 	}
 

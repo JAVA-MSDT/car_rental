@@ -1,17 +1,5 @@
 <web-app>
 	<display-name>carrental</display-name>
-	<!--  
-	<servlet>
-		<servlet-name>FrontController</servlet-name>
-		<display-name>FrontController</display-name>
-		<description></description>
-		<servlet-class>com.front.FrontController</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>FrontController</servlet-name>
-		<url-pattern>/car-rental</url-pattern>
-	</servlet-mapping>
-	-->
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

@@ -15,7 +15,6 @@ public class NewsController implements Controller {
 		ViewResolver resolver = new ViewResolver();
 
 		resolver.forward(NEWS_JSP);
-		System.out.println("From: " + this.getClass().getSimpleName());
 		return resolver;
 	}
 }

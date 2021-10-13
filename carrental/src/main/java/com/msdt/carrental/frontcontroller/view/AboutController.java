@@ -15,8 +15,6 @@ public class AboutController implements Controller {
 		ViewResolver resolver = new ViewResolver();
 
 		resolver.forward(ABOUT_JSP);
-		System.out.println("From: " + this.getClass().getSimpleName());
-
 		return resolver;
 	}
 

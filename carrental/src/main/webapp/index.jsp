@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home Page</title>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/pages/common/navbar.jsp" />
+	<h1>Home Page</h1>
 	<h1> Hello Car Runner </h1>
 </body>
 </html>

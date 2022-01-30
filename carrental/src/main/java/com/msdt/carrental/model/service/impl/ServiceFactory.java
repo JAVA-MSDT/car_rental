@@ -14,9 +14,16 @@ public enum ServiceFactory {
 		daoFactory.setConnection(connection);
 	}
 
-
 	public UserService getUserService() {
 		return new UserService(daoFactory.getUserDao());
+	}
+
+	public CarService getCarService() {
+		return new CarService(daoFactory.getCarDao());
+	}
+
+	public OrderService getOrderService() {
+		return new OrderService(daoFactory.getOrderDao());
 	}
 
 }

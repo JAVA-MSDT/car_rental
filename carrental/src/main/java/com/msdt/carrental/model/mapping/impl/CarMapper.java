@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import com.msdt.carrental.domain.Car;
 import com.msdt.carrental.model.mapping.GenericMapper;
+import com.msdt.carrental.util.constants.CarConstant;
 
 /**
  * 
@@ -15,11 +16,11 @@ public class CarMapper implements GenericMapper<Car> {
 
 	@Override
 	public Car rowMapper(final ResultSet resultSet) throws SQLException {
-		long carId = resultSet.getLong("car_id");
-		String carModel = resultSet.getString("car_model");
-		String carReleaseYear = resultSet.getString("car_release_year");
-		String carColor = resultSet.getString("car_color");
-		String carCompany = resultSet.getString("car_company");
+		long carId = resultSet.getLong(CarConstant.TABLE_CAR_ID);
+		String carModel = resultSet.getString(CarConstant.TABLE_CAR_MODEL);
+		String carReleaseYear = resultSet.getString(CarConstant.TABLE_CAR_RELEASE_YEAR);
+		String carColor = resultSet.getString(CarConstant.TABLE_CAR_COLOR);
+		String carCompany = resultSet.getString(CarConstant.TABLE_CAR_COMPANY);
 
 		return new Car(carId, carModel, carReleaseYear, carColor, carCompany);
 	}

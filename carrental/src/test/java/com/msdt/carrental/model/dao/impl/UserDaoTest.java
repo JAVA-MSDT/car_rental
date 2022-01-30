@@ -71,7 +71,7 @@ public class UserDaoTest {
 
 	@Test
 	public void testGetItemById() throws Exception {
-		User expectedUser = new User(1, "caveline0", "jgoodday0@cnet.com", "mpally0", "49340 Summit Trail", false,
+		User expectedUser = new User(1, "caveline0", "mpally0", "jgoodday0@cnet.com", "49340 Summit Trail", false,
 				UserRole.USER);
 		User actualUser = userDao.getItemById(1);
 

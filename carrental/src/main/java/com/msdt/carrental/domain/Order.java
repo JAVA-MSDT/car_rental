@@ -4,8 +4,7 @@ import java.sql.Date;
 
 /**
  * 
- * @author Ahmed Samy 
- * https://github.com/JAVA-MSDT
+ * @author Ahmed Samy https://github.com/JAVA-MSDT
  */
 public class Order {
 
@@ -19,6 +18,16 @@ public class Order {
 
 	public Order() {
 
+	}
+
+	public Order(final long userId, final long carId, final Date orderDate, final Date returnDate,
+			final double rentalcost) {
+
+		this.userId = userId;
+		this.carId = carId;
+		this.orderDate = orderDate;
+		this.returnDate = returnDate;
+		this.rentalcost = rentalcost;
 	}
 
 	public Order(final long userId, final long carId, final Date orderDate, final Date returnDate,

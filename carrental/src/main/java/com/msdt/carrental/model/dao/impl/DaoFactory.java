@@ -28,4 +28,8 @@ public enum DaoFactory {
 	public CarDao getCarDao() {
 		return new CarDao(connection);
 	}
+	
+	public OrderDao getOrderDao() {
+		return new OrderDao(connection);
+	}
 }

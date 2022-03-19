@@ -30,12 +30,13 @@ public class App {
 		List<User> users = userService.getAllItems();
 		List<Car> cars = carService.getAllItems();
 		List<Order> orders = orderService.getAllItems();
-		
+
 		System.out.println("========================================= USERS =========================================");
 		users.forEach(System.out::println);
 		System.out.println("========================================= CARS =========================================");
 		cars.forEach(System.out::println);
-		System.out.println("========================================= ORDERS =========================================");
+		System.out
+				.println("========================================= ORDERS =========================================");
 		orders.forEach(System.out::println);
 
 	}

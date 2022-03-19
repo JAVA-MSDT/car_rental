@@ -5,16 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.msdt.carrental.frontcontroller.controller.Controller;
 import com.msdt.carrental.frontcontroller.viewresolve.ViewResolver;
+import com.msdt.carrental.util.constants.ControllerConstant;
 
 public class NewsController implements Controller {
 
-	private static final String NEWS_JSP = "/WEB-INF/pages/main/news.jsp";
 
 	@Override
 	public ViewResolver resolve(final HttpServletRequest request, final HttpServletResponse response) {
-		ViewResolver resolver = new ViewResolver();
-
-		resolver.forward(NEWS_JSP);
-		return resolver;
+		return new ViewResolver(ControllerConstant.NEWS_PAGE);
 	}
 }

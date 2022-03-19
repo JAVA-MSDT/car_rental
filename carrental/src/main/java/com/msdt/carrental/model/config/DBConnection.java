@@ -37,8 +37,9 @@ public class DBConnection {
 	public Connection getConnection() {
 		try {
 			Connection connection = DriverManager.getConnection(databaseUrl, databaseUser, databasePassword);
-
+			LOGGER.info("========================== INFO ==========================");
 			LOGGER.info("Successfully connected to Database URL: " + databaseUrl);
+			LOGGER.info("==========================================================");
 			return connection;
 		} catch (SQLException e) {
 			LOGGER.error("Unable to connect to Database URL: " + databaseUrl + " " + e);

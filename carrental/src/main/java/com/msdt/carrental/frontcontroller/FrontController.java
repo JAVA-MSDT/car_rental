@@ -9,9 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.msdt.carrental.frontcontroller.controller.Controller;
 import com.msdt.carrental.frontcontroller.controller.ControllerFactory;
 import com.msdt.carrental.frontcontroller.viewresolve.ViewResolver;
+import com.msdt.carrental.model.service.api.ServiceException;
 
 /**
  * Servlet implementation class FrontController
@@ -20,11 +24,14 @@ import com.msdt.carrental.frontcontroller.viewresolve.ViewResolver;
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String CONTROLLER_NAME = "controller";
+	private static final Logger LOGGER = LogManager.getLogger();
+
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public FrontController() {
+		LOGGER.info("========================== Car Rental Started ==========================");
 	}
 
 	/**
@@ -50,12 +57,20 @@ public class FrontController extends HttpServlet {
 	private void processRequest(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException {
 		String controllerName = request.getParameter(CONTROLLER_NAME);
+		LOGGER.info("========================== INFO ==========================");
+		LOGGER.info("processRequest controllerName:: " + controllerName);
+		LOGGER.info("==========================================================");
 
-		ControllerFactory factory = new ControllerFactory();
-		Controller controller = factory.getController(controllerName);
-		ViewResolver resolver = controller.resolve(request, response);
-		dispatch(request, response, resolver);
+		try {
+			ControllerFactory factory = new ControllerFactory();
+			Controller controller = factory.getController(controllerName);
+			ViewResolver resolver = controller.resolve(request, response);
+			dispatch(request, response, resolver);
+		} catch (ServiceException e) {
+			LOGGER.error("Exception in Library Controller", e);
+		}
 	}
+
 
 	private void dispatch(final HttpServletRequest request, final HttpServletResponse response,
 			final ViewResolver resolver) throws ServletException, IOException {
@@ -74,6 +89,11 @@ public class FrontController extends HttpServlet {
 			break;
 		}
 
+	}
+	
+	@Override
+	public void destroy() {
+		LOGGER.info("========================== Car Rental Terminated ==========================");
 	}
 
 }

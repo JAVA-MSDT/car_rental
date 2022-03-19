@@ -12,11 +12,11 @@ import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.configuration.FluentConfiguration;
 
 import com.opentable.db.postgres.embedded.EmbeddedPostgres;
+
 /**
  * Used For Test Only
  * 
- * @author Ahmed Samy 
- * https://github.com/JAVA-MSDT
+ * @author Ahmed Samy https://github.com/JAVA-MSDT
  */
 public class DBTestConfig {
 
@@ -28,7 +28,11 @@ public class DBTestConfig {
 	 */
 	public Connection getConnection() {
 		try {
-			return getDataSource().getConnection();
+			Connection connection = getDataSource().getConnection();
+			LOGGER.info("========================== INFO ==========================");
+			LOGGER.info("Successfully connected to Testing  Database ");
+			LOGGER.info("==========================================================");
+			return connection;
 		} catch (SQLException e) {
 			LOGGER.error("Unabling to get Connection: " + e);
 			throw new RuntimeException("Unabling to Start Connection: ");
@@ -47,6 +51,9 @@ public class DBTestConfig {
 		try {
 			postgres = EmbeddedPostgres.builder().start();
 			dataSource = postgres.getPostgresDatabase();
+			LOGGER.info("========================== INFO ==========================");
+			LOGGER.info("EmbeddedPostgres Started Successfully ");
+			LOGGER.info("==========================================================");
 		} catch (IOException e) {
 			LOGGER.error("Unabling to Start EmbededPostgress: " + e);
 		}
@@ -71,7 +78,11 @@ public class DBTestConfig {
 	 */
 	private Flyway getFlyway(final DataSource dataSource) {
 		FluentConfiguration configuration = Flyway.configure().dataSource(dataSource);
-		return new Flyway(configuration);
+		Flyway flyway = new Flyway(configuration);
+		LOGGER.info("========================== INFO ==========================");
+		LOGGER.info("Flyway Started Successfully ");
+		LOGGER.info("==========================================================");
+		return flyway;
 	}
 
 }

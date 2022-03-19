@@ -5,17 +5,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.msdt.carrental.frontcontroller.controller.Controller;
 import com.msdt.carrental.frontcontroller.viewresolve.ViewResolver;
+import com.msdt.carrental.util.constants.ControllerConstant;
 
 public class BlogController implements Controller {
-	private static final String BLOG_JSP = "/WEB-INF/pages/main/blog.jsp";
 
 	@Override
 	public ViewResolver resolve(final HttpServletRequest request, final HttpServletResponse response) {
-		ViewResolver resolver = new ViewResolver();
-
 		request.setAttribute("blog_post", "Blog Post");
-		resolver.forward(BLOG_JSP);
-		return resolver;
+		return new ViewResolver(ControllerConstant.BLOG_PAGE);
 	}
 
 }

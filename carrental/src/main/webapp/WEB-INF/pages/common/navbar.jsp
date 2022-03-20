@@ -31,6 +31,8 @@
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="car-rental?controller=cars">Cars</a></li>
+							<li class="nav-item"><a class="nav-link"
+				href="car-rental?controller=users">Users</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="car-rental?controller=news">News</a></li>
 			<li class="nav-item"><a class="nav-link"

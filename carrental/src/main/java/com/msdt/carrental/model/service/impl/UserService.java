@@ -73,4 +73,16 @@ public class UserService implements GenericService<User> {
 		}
 	}
 
+	/////// Custom Service ///////
+
+	public User getUserByUserNameAndPassword(final String userName, final String userPassword) throws ServiceException {
+
+		try {
+			return userDao.getUserByUserNameAndPassword(userName, userPassword);
+		} catch (DaoException e) {
+			LOGGER.error("Unabling to perform getUserByUserNameAndPassword from userService: " + e);
+			throw new ServiceException("Unabling to perform getUserByUserNameAndPassword from userService: " + e);
+		}
+	}
+
 }

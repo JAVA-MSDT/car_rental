@@ -1,6 +1,6 @@
-insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('caveline0', 'jgoodday0@cnet.com', 'mpally0', '49340 Summit Trail', false, 'USER');
-insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('flehrer1', 'ngrane1@si.edu', 'gmassingham1', '48 Pawling Avenue', true, 'USER');
-insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('abuttrick2', 'lduckels2@hc360.com', 'ggritten2', '3323 David Hill', true, 'USER');
+insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('admin', 'jgoodday0@cnet.com', 'admin', '49340 Summit Trail', false, 'ADMIN');
+insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('user', 'ngrane1@si.edu', 'user', '48 Pawling Avenue', false, 'USER');
+insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('admin1', 'lduckels2@hc360.com', 'admin1', '3323 David Hill', true, 'ADMIN');
 insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('calltimes3', 'wshurrocks3@live.com', 'mcapron3', '6 Jenna Pass', false, 'USER');
 insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('rchantrell4', 'kfitchen4@1und1.de', 'kcarney4', '0 Hansons Street', true, 'USER');
 insert into user_table (user_name, user_email, user_password, user_address, user_blocked, user_role) values ('emacrae5', 'isteggles5@squarespace.com', 'krawlins5', '1952 Elgar Crossing', true, 'USER');

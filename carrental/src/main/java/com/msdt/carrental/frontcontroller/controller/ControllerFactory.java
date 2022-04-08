@@ -6,6 +6,8 @@ import com.msdt.carrental.frontcontroller.view.AboutController;
 import com.msdt.carrental.frontcontroller.view.BlogController;
 import com.msdt.carrental.frontcontroller.view.NewsController;
 import com.msdt.carrental.frontcontroller.view.car.CarsController;
+import com.msdt.carrental.frontcontroller.view.common.LoginController;
+import com.msdt.carrental.frontcontroller.view.common.LogoutController;
 import com.msdt.carrental.frontcontroller.view.user.UserController;
 import com.msdt.carrental.model.config.DBTestConfig;
 import com.msdt.carrental.model.service.impl.ServiceFactory;
@@ -33,6 +35,10 @@ public class ControllerFactory{
 			return new AboutController();
 		case ControllerConstant.BLOG_CONTROLLER:
 			return new BlogController();
+		case ControllerConstant.LOGIN_CONTROLLER:
+			return new LoginController(serviceFactory.getUserService());
+		case ControllerConstant.LOGOUT_CONTROLLER:
+			return new LogoutController();
 		default:
 		}
 		

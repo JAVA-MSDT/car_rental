@@ -49,5 +49,13 @@ public class UserDao extends AbstractDao<User> {
 	public int deleteItem(final long id) throws DaoException {
 		return executeUpdate(UserConstant.DELETE_USER_BY_ID, String.valueOf(id));
 	}
+	
+	/////// Custom Queries ///////
+	
+	public User getUserByUserNameAndPassword(final String userName, final String userPassword) throws DaoException {
+		return queryForObject(UserConstant.SELECT_USER_BY_USER_NAME_PASSWORD, new UserMapper(), userName, userPassword);
+	}
+	
+	
 
 }

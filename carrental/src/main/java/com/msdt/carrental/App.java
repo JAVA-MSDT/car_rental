@@ -33,6 +33,10 @@ public class App {
 
 		System.out.println("========================================= USERS =========================================");
 		users.forEach(System.out::println);
+		System.out.println("========================================= USER NAME & PASSWORD =========================================");
+		System.out.println(userService.getUserByUserNameAndPassword("admin", "admin"));
+		System.out.println(userService.getUserByUserNameAndPassword("user", "user"));
+		
 		System.out.println("========================================= CARS =========================================");
 		cars.forEach(System.out::println);
 		System.out

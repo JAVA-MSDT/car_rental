@@ -7,6 +7,7 @@ import com.msdt.carrental.domain.User;
 import com.msdt.carrental.model.dao.api.AbstractDao;
 import com.msdt.carrental.model.dao.api.DaoException;
 import com.msdt.carrental.model.mapping.impl.UserMapper;
+import com.msdt.carrental.util.MD5Encryptor;
 import com.msdt.carrental.util.constants.UserConstant;
 
 /**
@@ -24,7 +25,9 @@ public class UserDao extends AbstractDao<User> {
 
 	@Override
 	public int insertItem(final User item) throws DaoException {
-		return executeUpdate(UserConstant.INSERT_USER, item.getUserName(), item.getUserEmail(), item.getUserPassword(),
+		System.out.println("UserDao: " + item);
+		String encryptPassword = MD5Encryptor.encrypt(item.getUserPassword());
+		return executeUpdate(UserConstant.INSERT_USER, item.getUserName(), item.getUserEmail(), encryptPassword,
 				item.getUserAddress(), String.valueOf(item.isUserBlocked()), item.getUseRole().name());
 	}
 
@@ -53,7 +56,10 @@ public class UserDao extends AbstractDao<User> {
 	/////// Custom Queries ///////
 	
 	public User getUserByUserNameAndPassword(final String userName, final String userPassword) throws DaoException {
-		return queryForObject(UserConstant.SELECT_USER_BY_USER_NAME_PASSWORD, new UserMapper(), userName, userPassword);
+		System.out.println("Passowrd Bfore Encrypt: " + userPassword);
+		String encryptPassword = MD5Encryptor.encrypt(userPassword).trim();
+		System.out.println("Passowrd After Encrypt: " + encryptPassword);
+		return queryForObject(UserConstant.SELECT_USER_BY_USER_NAME_PASSWORD, new UserMapper(), userName, encryptPassword);
 	}
 	
 	

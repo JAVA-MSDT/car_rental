@@ -9,13 +9,14 @@ import com.msdt.carrental.frontcontroller.view.car.CarsController;
 import com.msdt.carrental.frontcontroller.view.common.LoginController;
 import com.msdt.carrental.frontcontroller.view.common.LogoutController;
 import com.msdt.carrental.frontcontroller.view.user.UserController;
+import com.msdt.carrental.model.config.DBConnection;
 import com.msdt.carrental.model.config.DBTestConfig;
 import com.msdt.carrental.model.service.impl.ServiceFactory;
 import com.msdt.carrental.util.constants.ControllerConstant;
 
 public class ControllerFactory{
 
-	private Connection connection = new DBTestConfig().getConnection();
+	private Connection connection = new DBConnection().getConnection();
 	private ServiceFactory serviceFactory = ServiceFactory.INSTANCE;
 
 	public ControllerFactory() {

@@ -16,6 +16,7 @@ import com.msdt.carrental.frontcontroller.controller.Controller;
 import com.msdt.carrental.frontcontroller.controller.ControllerFactory;
 import com.msdt.carrental.frontcontroller.viewresolve.ViewResolver;
 import com.msdt.carrental.model.service.api.ServiceException;
+import com.msdt.carrental.util.constants.ControllerConstant;
 
 /**
  * Servlet implementation class FrontController
@@ -23,7 +24,6 @@ import com.msdt.carrental.model.service.api.ServiceException;
 @WebServlet("/car-rental")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String CONTROLLER_NAME = "controller";
 	private static final Logger LOGGER = LogManager.getLogger();
 
 
@@ -56,7 +56,7 @@ public class FrontController extends HttpServlet {
 
 	private void processRequest(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException {
-		String controllerName = request.getParameter(CONTROLLER_NAME);
+		String controllerName = request.getParameter(ControllerConstant.CONTROLLER_NAME_VAR);
 		LOGGER.info("========================== INFO ==========================");
 		LOGGER.info("processRequest controllerName:: " + controllerName);
 		LOGGER.info("==========================================================");

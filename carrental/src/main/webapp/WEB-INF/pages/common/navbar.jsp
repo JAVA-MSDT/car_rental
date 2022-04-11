@@ -34,9 +34,11 @@
 			<li class="nav-item"><a class="nav-link"
 				href="car-rental?controller=cars">Cars</a></li>
 				
-			<li class="nav-item"><a class="nav-link"
-				href="car-rental?controller=users">Users</a></li>
-				
+			<c:if test="${sessionScope.user.useRole eq 'ADMIN'}"> 
+				<li class="nav-item"><a class="nav-link"
+					href="car-rental?controller=users">Users</a></li>
+			</c:if>
+			
 			<li class="nav-item"><a class="nav-link"
 				href="car-rental?controller=news">News</a></li>
 			<li class="nav-item"><a class="nav-link"
@@ -56,7 +58,8 @@
 					<a class="btn btn-primary" href="/login"> Log In </a>
 				</c:when>
 				<c:otherwise>
-					<a class="btn btn-primary" href="car-rental?controller=logout"> Log Out </a>
+					<a class="btn btn-primary" href="car-rental?controller=logout">
+						Log Out </a>
 				</c:otherwise>
 			</c:choose>
 		</form>

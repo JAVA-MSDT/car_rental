@@ -5,13 +5,17 @@ public class ControllerConstant {
 	/////////////////////
 	// Controller Name //
 	/////////////////////
+	public static final String CONTROLLER_NAME_VAR = "controller";
+	// Public Controller
 	public static final String BLOG_CONTROLLER = "blog";
 	public static final String ABOUT_CONTROLLER = "about";
 	public static final String NEWS_CONTROLLER = "news";
 	public static final String CARS_CONTROLLER = "cars";
-	public static final String USERS_CONTROLLER = "users";
 	public static final String LOGIN_CONTROLLER = "login";
 	public static final String LOGOUT_CONTROLLER = "logout";
+	
+	// Administration Controller
+	public static final String USERS_CONTROLLER = "users";
 
 	///////////////////
 	// View Location //

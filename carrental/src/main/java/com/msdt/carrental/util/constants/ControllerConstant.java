@@ -25,6 +25,7 @@ public class ControllerConstant {
 	public static final String ABOUT_PAGE = "/WEB-INF/pages/main/about.jsp";
 	public static final String NEWS_PAGE = "/WEB-INF/pages/main/news.jsp";
 	public static final String LOGIN_PAGE = "/WEB-INF/pages/common/login.jsp";
+	public static final String ERROR_PAGE = "/WEB-INF/pages/common/errorPage.jsp";
 	
 	// Cars Pages
 	public static final String CARS_PAGE = "/WEB-INF/pages/car/cars.jsp";

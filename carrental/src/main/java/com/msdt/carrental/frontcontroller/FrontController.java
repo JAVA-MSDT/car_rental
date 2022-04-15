@@ -26,7 +26,6 @@ public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LogManager.getLogger();
 
-
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -57,10 +56,6 @@ public class FrontController extends HttpServlet {
 	private void processRequest(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException {
 		String controllerName = request.getParameter(ControllerConstant.CONTROLLER_NAME_VAR);
-		LOGGER.info("========================== INFO ==========================");
-		LOGGER.info("processRequest controllerName:: " + controllerName);
-		LOGGER.info("==========================================================");
-
 		try {
 			ControllerFactory factory = new ControllerFactory();
 			Controller controller = factory.getController(controllerName);
@@ -68,9 +63,9 @@ public class FrontController extends HttpServlet {
 			dispatch(request, response, resolver);
 		} catch (ServiceException e) {
 			LOGGER.error("Exception in Library Controller", e);
+			response.sendRedirect(request.getContextPath() + ControllerConstant.ERROR_PAGE);
 		}
 	}
-
 
 	private void dispatch(final HttpServletRequest request, final HttpServletResponse response,
 			final ViewResolver resolver) throws ServletException, IOException {
@@ -84,13 +79,12 @@ public class FrontController extends HttpServlet {
 		case REDIRECT:
 			response.sendRedirect(view);
 			break;
-
 		default:
-			break;
+			response.sendRedirect(request.getContextPath() + ControllerConstant.HOME_PAGE);
 		}
 
 	}
-	
+
 	@Override
 	public void destroy() {
 		LOGGER.info("========================== Car Rental Terminated ==========================");

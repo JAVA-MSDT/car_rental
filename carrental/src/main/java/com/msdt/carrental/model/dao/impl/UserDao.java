@@ -56,9 +56,7 @@ public class UserDao extends AbstractDao<User> {
 	/////// Custom Queries ///////
 	
 	public User getUserByUserNameAndPassword(final String userName, final String userPassword) throws DaoException {
-		System.out.println("Passowrd Bfore Encrypt: " + userPassword);
 		String encryptPassword = MD5Encryptor.encrypt(userPassword).trim();
-		System.out.println("Passowrd After Encrypt: " + encryptPassword);
 		return queryForObject(UserConstant.SELECT_USER_BY_USER_NAME_PASSWORD, new UserMapper(), userName, encryptPassword);
 	}
 	

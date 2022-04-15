@@ -13,12 +13,30 @@
 		<servlet-name>login</servlet-name>
 		<jsp-file>/WEB-INF/pages/common/login.jsp</jsp-file>
 	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>login</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
 
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/pages/common/errorPage.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>com.msdt.carrental.model.service.api.ServiceException
+		</exception-type>
+		<location>/WEB-INF/pages/common/errorPage.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<exception-type>java.lang.RuntimeException</exception-type>
+		<location>/WEB-INF/pages/common/serverError.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/pages/common/serverError.jsp</location>
+	</error-page>
+	
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>*.jsp</url-pattern>

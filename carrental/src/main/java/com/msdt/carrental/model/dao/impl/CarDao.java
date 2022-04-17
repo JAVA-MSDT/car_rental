@@ -24,8 +24,8 @@ public class CarDao extends AbstractDao<Car> {
 
 	@Override
 	public int insertItem(final Car item) throws DaoException {
-		return executeUpdate(CarConstant.INSERT_CAR, item.getCarModel(), item.getcarReleaseYear(), item.getCarColor(),
-				item.getCarModel());
+		return executeUpdate(CarConstant.INSERT_CAR, item.getCarModel(), item.getCarReleaseYear(), item.getCarColor(),
+				item.getCarModel(), String.valueOf(item.getQuantity()));
 	}
 
 	@Override
@@ -40,8 +40,8 @@ public class CarDao extends AbstractDao<Car> {
 
 	@Override
 	public int updateItem(final Car item) throws DaoException {
-		return executeUpdate(CarConstant.UPDATE_CAR, item.getCarModel(), item.getcarReleaseYear(), item.getCarColor(),
-				item.getCarModel(), String.valueOf(item.getCarId()));
+		return executeUpdate(CarConstant.UPDATE_CAR, item.getCarModel(), item.getCarReleaseYear(), item.getCarColor(),
+				item.getCarModel(), String.valueOf(item.getQuantity()), String.valueOf(item.getCarId()));
 	}
 
 	@Override

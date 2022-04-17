@@ -19,7 +19,8 @@ CREATE TABLE car_table
   car_model VARCHAR(50),
   car_release_year VARCHAR(50),
   car_color VARCHAR(50),
-  car_company VARCHAR(50)
+  car_company VARCHAR(50),
+  quantity INT
  );
  
 CREATE TABLE order_table

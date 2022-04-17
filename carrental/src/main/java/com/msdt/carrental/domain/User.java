@@ -14,7 +14,7 @@ public class User {
 	private String userPassword;
 	private String userAddress;
 	private boolean userBlocked;
-	private UserRole useRole;
+	private UserRole userRole;
 
 	// Constructors
 	public User() {
@@ -22,18 +22,18 @@ public class User {
 	}
 
 	public User(final String userName, final String userEmail, final String userPassword, final String userAddress,
-			final boolean userBlocked, final UserRole useRole) {
+			final boolean userBlocked, final UserRole userRole) {
 
 		this.userName = userName;
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
 		this.userAddress = userAddress;
 		this.userBlocked = userBlocked;
-		this.useRole = useRole;
+		this.userRole = userRole;
 	}
 
 	public User(final long userId, final String userName, final String userEmail, final String userPassword,
-			final String userAddress, final boolean userBlocked, final UserRole useRole) {
+			final String userAddress, final boolean userBlocked, final UserRole userRole) {
 
 		this.userId = userId;
 		this.userName = userName;
@@ -41,7 +41,7 @@ public class User {
 		this.userPassword = userPassword;
 		this.userAddress = userAddress;
 		this.userBlocked = userBlocked;
-		this.useRole = useRole;
+		this.userRole = userRole;
 	}
 
 	// Setters & Getters
@@ -93,20 +93,20 @@ public class User {
 		this.userBlocked = userBlocked;
 	}
 
-	public UserRole getUseRole() {
-		return useRole;
+	public UserRole getUserRole() {
+		return userRole;
 	}
 
-	public void setUseRole(final UserRole useRole) {
-		this.useRole = useRole;
+	public void setUserRole(final UserRole userRole) {
+		this.userRole = userRole;
 	}
 
 	// To String 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userPassword="
-				+ userPassword + ", userAddress=" + userAddress + ", userBlocked=" + userBlocked + ", useRole="
-				+ useRole + "]";
+				+ userPassword + ", userAddress=" + userAddress + ", userBlocked=" + userBlocked + ", userRole="
+				+ userRole + "]";
 	}
 
 	// Hash code
@@ -114,7 +114,7 @@ public class User {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = (prime * result) + ((useRole == null) ? 0 : useRole.hashCode());
+		result = (prime * result) + ((userRole == null) ? 0 : userRole.hashCode());
 		result = (prime * result) + ((userAddress == null) ? 0 : userAddress.hashCode());
 		result = (prime * result) + (userBlocked ? 1231 : 1237);
 		result = (prime * result) + ((userEmail == null) ? 0 : userEmail.hashCode());
@@ -137,7 +137,7 @@ public class User {
 			return false;
 		}
 		User other = (User) obj;
-		if (useRole != other.useRole) {
+		if (userRole != other.userRole) {
 			return false;
 		}
 		if (userAddress == null) {

@@ -1,9 +1,10 @@
 package com.msdt.carrental.domain;
 
+import java.util.Objects;
+
 /**
  * 
- * @author Ahmed Samy 
- * https://github.com/JAVA-MSDT
+ * @author Ahmed Samy https://github.com/JAVA-MSDT
  */
 public class Car {
 
@@ -12,26 +13,31 @@ public class Car {
 	private String carReleaseYear;
 	private String carColor;
 	private String carCompany;
+	private int quantity;
 
 	public Car() {
 
 	}
 
-	public Car(final String carModel, final String carReleaseYear, final String carColor, final String carCompany) {
+	public Car(final String carModel, final String carReleaseYear, final String carColor, final String carCompany,
+			final int quantity) {
 
 		this.carModel = carModel;
 		this.carReleaseYear = carReleaseYear;
 		this.carColor = carColor;
 		this.carCompany = carCompany;
+		this.quantity = quantity;
 	}
 
-	public Car(final long carId, final String carModel, final String carReleaseYear, final String carColor, final String carCompany) {
+	public Car(final long carId, final String carModel, final String carReleaseYear, final String carColor,
+			final String carCompany, final int quantity) {
 
 		this.carId = carId;
 		this.carModel = carModel;
 		this.carReleaseYear = carReleaseYear;
 		this.carColor = carColor;
 		this.carCompany = carCompany;
+		this.quantity = quantity;
 	}
 
 	public long getCarId() {
@@ -50,14 +56,6 @@ public class Car {
 		this.carModel = carModel;
 	}
 
-	public String getcarReleaseYear() {
-		return carReleaseYear;
-	}
-
-	public void setcarReleaseYear(final String carReleaseYear) {
-		this.carReleaseYear = carReleaseYear;
-	}
-
 	public String getCarColor() {
 		return carColor;
 	}
@@ -74,68 +72,45 @@ public class Car {
 		this.carCompany = carCompany;
 	}
 
+	public String getCarReleaseYear() {
+		return carReleaseYear;
+	}
+
+	public void setCarReleaseYear(String carReleaseYear) {
+		this.carReleaseYear = carReleaseYear;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 	@Override
 	public String toString() {
 		return "Car [carId=" + carId + ", carModel=" + carModel + ", carReleaseYear=" + carReleaseYear + ", carColor="
-				+ carColor + ", carCompany=" + carCompany + "]";
+				+ carColor + ", carCompany=" + carCompany + ", quantity=" + quantity + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = (prime * result) + ((carColor == null) ? 0 : carColor.hashCode());
-		result = (prime * result) + ((carCompany == null) ? 0 : carCompany.hashCode());
-		result = (prime * result) + (int) (carId ^ (carId >>> 32));
-		result = (prime * result) + ((carModel == null) ? 0 : carModel.hashCode());
-		result = (prime * result) + ((carReleaseYear == null) ? 0 : carReleaseYear.hashCode());
-		return result;
+		return Objects.hash(carColor, carCompany, carId, carModel, carReleaseYear, quantity);
 	}
 
 	@Override
-	public boolean equals(final Object obj) {
-		if (this == obj) {
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		}
-		if (obj == null) {
+		if (obj == null)
 			return false;
-		}
-		if (getClass() != obj.getClass()) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
 		Car other = (Car) obj;
-		if (carColor == null) {
-			if (other.carColor != null) {
-				return false;
-			}
-		} else if (!carColor.equals(other.carColor)) {
-			return false;
-		}
-		if (carCompany == null) {
-			if (other.carCompany != null) {
-				return false;
-			}
-		} else if (!carCompany.equals(other.carCompany)) {
-			return false;
-		}
-		if (carId != other.carId) {
-			return false;
-		}
-		if (carModel == null) {
-			if (other.carModel != null) {
-				return false;
-			}
-		} else if (!carModel.equals(other.carModel)) {
-			return false;
-		}
-		if (carReleaseYear == null) {
-			if (other.carReleaseYear != null) {
-				return false;
-			}
-		} else if (!carReleaseYear.equals(other.carReleaseYear)) {
-			return false;
-		}
-		return true;
+		return Objects.equals(carColor, other.carColor) && Objects.equals(carCompany, other.carCompany)
+				&& carId == other.carId && Objects.equals(carModel, other.carModel)
+				&& Objects.equals(carReleaseYear, other.carReleaseYear) && quantity == other.quantity;
 	}
 
 }

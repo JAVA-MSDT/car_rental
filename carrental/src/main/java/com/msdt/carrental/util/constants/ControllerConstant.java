@@ -13,6 +13,7 @@ public class ControllerConstant {
 	public static final String CARS_CONTROLLER = "cars";
 	public static final String LOGIN_CONTROLLER = "login";
 	public static final String LOGOUT_CONTROLLER = "logout";
+	public static final String VIEW_CAR_CONTROLLER = "viewCar";
 	
 	// Administration Controller
 	public static final String USERS_CONTROLLER = "users";
@@ -29,6 +30,7 @@ public class ControllerConstant {
 	
 	// Cars Pages
 	public static final String CARS_PAGE = "/WEB-INF/pages/car/cars.jsp";
+	public static final String CAR_PAGE = "/WEB-INF/pages/car/carPage.jsp";
 	
 	// User Pages
 	public static final String USERS_PAGE = "/WEB-INF/pages/user/users.jsp";
@@ -39,6 +41,7 @@ public class ControllerConstant {
 	///////////////////////
 	
 	public static final String CARS_RESPONSE = "cars";
+	public static final String CAR_RESPONSE = "car";
 	public static final String USERS_RESPONSE = "users";
 	
 	private ControllerConstant() {

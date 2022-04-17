@@ -30,7 +30,7 @@ public class AuthController implements Filter {
 
 	private static final List<String> PUBLIC_CONTROLLER = Arrays.asList(ControllerConstant.BLOG_CONTROLLER,
 			ControllerConstant.ABOUT_CONTROLLER, ControllerConstant.NEWS_CONTROLLER, ControllerConstant.CARS_CONTROLLER,
-			ControllerConstant.LOGIN_CONTROLLER, ControllerConstant.LOGOUT_CONTROLLER);
+			ControllerConstant.LOGIN_CONTROLLER, ControllerConstant.LOGOUT_CONTROLLER, ControllerConstant.VIEW_CAR_CONTROLLER);
 
 	private static final List<String> ADMINISTRATION_CONTROLLER = Arrays.asList(ControllerConstant.USERS_CONTROLLER);
 
@@ -55,9 +55,9 @@ public class AuthController implements Filter {
 		String controller = request.getParameter(ControllerConstant.CONTROLLER_NAME_VAR);
 		if (!isPublicController(controller)) {
 
-			if (user != null && user.getUseRole().equals(UserRole.ADMIN) && isAdministrationController(controller)) {
+			if (user != null && user.getUserRole().equals(UserRole.ADMIN) && isAdministrationController(controller)) {
 				filterChain.doFilter(request, response);
-			} else if (user != null && user.getUseRole().equals(UserRole.USER) && isUserController(controller)) {
+			} else if (user != null && user.getUserRole().equals(UserRole.USER) && isUserController(controller)) {
 				filterChain.doFilter(request, response);
 			} else {
 				response.sendRedirect(ControllerConstant.HOME_PAGE);

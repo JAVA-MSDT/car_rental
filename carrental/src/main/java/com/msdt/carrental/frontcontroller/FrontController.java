@@ -57,6 +57,7 @@ public class FrontController extends HttpServlet {
 			throws ServletException, IOException {
 		String controllerName = request.getParameter(ControllerConstant.CONTROLLER_NAME_VAR);
 		try {
+			LOGGER.info("Controller Name:: " + controllerName);
 			ControllerFactory factory = new ControllerFactory();
 			Controller controller = factory.getController(controllerName);
 			ViewResolver resolver = controller.resolve(request, response);

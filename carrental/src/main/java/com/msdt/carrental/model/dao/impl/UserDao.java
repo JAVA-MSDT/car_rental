@@ -28,7 +28,7 @@ public class UserDao extends AbstractDao<User> {
 		System.out.println("UserDao: " + item);
 		String encryptPassword = MD5Encryptor.encrypt(item.getUserPassword());
 		return executeUpdate(UserConstant.INSERT_USER, item.getUserName(), item.getUserEmail(), encryptPassword,
-				item.getUserAddress(), String.valueOf(item.isUserBlocked()), item.getUseRole().name());
+				item.getUserAddress(), String.valueOf(item.isUserBlocked()), item.getUserRole().name());
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class UserDao extends AbstractDao<User> {
 	@Override
 	public int updateItem(final User item) throws DaoException {
 		return executeUpdate(UserConstant.UPDATE_USER, item.getUserName(), item.getUserEmail(), item.getUserPassword(),
-				item.getUserAddress(), String.valueOf(item.isUserBlocked()), item.getUseRole().name(),
+				item.getUserAddress(), String.valueOf(item.isUserBlocked()), item.getUserRole().name(),
 				String.valueOf(item.getUserId()));
 	}
 

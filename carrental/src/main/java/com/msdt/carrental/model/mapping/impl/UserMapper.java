@@ -23,9 +23,9 @@ public class UserMapper implements GenericMapper<User>{
 		String userPassword = resultSet.getString(UserConstant.TABLE_USER_PASSWORD);
 		String userAddress = resultSet.getString(UserConstant.TABLE_USER_ADDRESS);
 		boolean userBlocked = resultSet.getBoolean(UserConstant.TABLE_USER_BLOCK_STATUS);
-		UserRole useRole = UserRole.valueOf(resultSet.getString(UserConstant.TABLE_USER_ROLE));
+		UserRole userRole = UserRole.valueOf(resultSet.getString(UserConstant.TABLE_USER_ROLE));
 
-		return new User(userId, userName, userEmail, userPassword, userAddress, userBlocked, useRole);
+		return new User(userId, userName, userEmail, userPassword, userAddress, userBlocked, userRole);
 	}
 
 }

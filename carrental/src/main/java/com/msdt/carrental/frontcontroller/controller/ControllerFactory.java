@@ -5,10 +5,11 @@ import java.sql.Connection;
 import com.msdt.carrental.frontcontroller.view.AboutController;
 import com.msdt.carrental.frontcontroller.view.BlogController;
 import com.msdt.carrental.frontcontroller.view.NewsController;
+import com.msdt.carrental.frontcontroller.view.car.CarView;
 import com.msdt.carrental.frontcontroller.view.car.CarsController;
 import com.msdt.carrental.frontcontroller.view.common.LoginController;
 import com.msdt.carrental.frontcontroller.view.common.LogoutController;
-import com.msdt.carrental.frontcontroller.view.user.UserController;
+import com.msdt.carrental.frontcontroller.view.user.UsersController;
 import com.msdt.carrental.model.config.DBConnection;
 import com.msdt.carrental.model.config.DBTestConfig;
 import com.msdt.carrental.model.service.impl.ServiceFactory;
@@ -31,7 +32,7 @@ public class ControllerFactory{
 		case ControllerConstant.CARS_CONTROLLER:
 			return new CarsController(serviceFactory.getCarService());
 		case ControllerConstant.USERS_CONTROLLER:
-			return new UserController(serviceFactory.getUserService());
+			return new UsersController(serviceFactory.getUserService());
 		case ControllerConstant.ABOUT_CONTROLLER:
 			return new AboutController();
 		case ControllerConstant.BLOG_CONTROLLER:
@@ -40,6 +41,8 @@ public class ControllerFactory{
 			return new LoginController(serviceFactory.getUserService());
 		case ControllerConstant.LOGOUT_CONTROLLER:
 			return new LogoutController();
+		case ControllerConstant.VIEW_CAR_CONTROLLER:
+			return new CarView(serviceFactory.getCarService());
 		default:
 		}
 		

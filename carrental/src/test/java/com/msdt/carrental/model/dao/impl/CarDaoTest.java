@@ -48,7 +48,7 @@ public class CarDaoTest {
 
 	@Test
 	public void testInsertItem() throws Exception {
-		Car expectedCar = new Car("Sidan", "2020", "Red", "BMW");
+		Car expectedCar = new Car("Sidan", "2020", "Red", "BMW", 2);
 
 		assertEquals(1, carDao.insertItem(expectedCar));
 	}
@@ -62,7 +62,7 @@ public class CarDaoTest {
 	@Test
 	public void testGetItemById() throws Exception {
 		Car actualCar = carDao.getItemById(4);
-		Car expectedCar = new Car(4, "Suburban 2500", "1996", "Green", "GMC");
+		Car expectedCar = new Car(4, "Suburban 2500", "1996", "Green", "GMC", 4);
 		System.out.println(actualCar);
 
 		assertEquals(expectedCar, actualCar);
@@ -70,14 +70,14 @@ public class CarDaoTest {
 
 	@Test
 	public void testUpdateItem() throws Exception {
-		Car expectedCar = new Car(4, "Suburban 2500", "2010", "Brown", "Audi");
+		Car expectedCar = new Car(4, "Suburban 2500", "2010", "Brown", "Audi", 5);
 
 		assertEquals(1, carDao.updateItem(expectedCar));
 	}
 
 	@Test
 	public void testDeleteItem() throws Exception {
-		Car expectedCar = new Car("Sidan", "2020", "Red", "BMW");
+		Car expectedCar = new Car("Sidan", "2020", "Red", "BMW", 3);
 		carDao.insertItem(expectedCar);
 
 		assertEquals(1, carDao.deleteItem(101));

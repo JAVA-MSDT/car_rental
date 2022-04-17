@@ -34,7 +34,7 @@
 			<li class="nav-item"><a class="nav-link"
 				href="car-rental?controller=cars">Cars</a></li>
 				
-			<c:if test="${sessionScope.user.useRole eq 'ADMIN'}"> 
+			<c:if test="${sessionScope.user.userRole eq 'ADMIN'}"> 
 				<li class="nav-item"><a class="nav-link"
 					href="car-rental?controller=users">Users</a></li>
 			</c:if>

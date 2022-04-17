@@ -14,11 +14,11 @@ import com.msdt.carrental.model.service.impl.CarService;
 import com.msdt.carrental.model.service.impl.UserService;
 import com.msdt.carrental.util.constants.ControllerConstant;
 
-public class UserController implements Controller {
+public class UsersController implements Controller {
 
 	private UserService userService;
 
-	public UserController(UserService userService) {
+	public UsersController(UserService userService) {
 		this.userService = userService;
 	}
 

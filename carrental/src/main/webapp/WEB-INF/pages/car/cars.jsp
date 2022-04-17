@@ -32,25 +32,39 @@
 						<th>
 							<h3>Release Year</h3>
 						</th>
+						<th>
+							<h3>View Car</h3>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach varStatus="loop" var="cars" items="${requestScope.cars}">
+					<c:forEach varStatus="loop" var="car" items="${requestScope.cars}">
 						<tr>
 							<td>
 								<h4>${loop.count}</h4>
 							</td>
 							<td>
-								<h4>${cars.carCompany}</h4>
+								<h4>${car.carCompany}</h4>
 							</td>
 							<td>
-								<h4>${cars.carColor}</h4>
+								<h4>${car.carColor}</h4>
 							</td>
 							<td>
-								<h4>${cars.carModel}</h4>
+								<h4>${car.carModel}</h4>
 							</td>
 							<td>
-								<h4>${cars.carReleaseYear}</h4>
+								<h4>${car.carReleaseYear}</h4>
+							</td>
+							<td>
+								<div class="view-book">
+									<form name="view-car" action="car-rental" method="post">
+										<input type="hidden" name="controller" value="viewCar">
+										<input class="btn btn-success" type="submit" name="view"
+											value="View Car" /> <input
+											type="hidden" name="carId"
+											value="<c:out value="${car.carId}"/>" />
+									</form>
+								</div>
 							</td>
 					</c:forEach>
 				</tbody>

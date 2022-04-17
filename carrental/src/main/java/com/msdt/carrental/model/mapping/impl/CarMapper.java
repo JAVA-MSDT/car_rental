@@ -21,8 +21,9 @@ public class CarMapper implements GenericMapper<Car> {
 		String carReleaseYear = resultSet.getString(CarConstant.TABLE_CAR_RELEASE_YEAR);
 		String carColor = resultSet.getString(CarConstant.TABLE_CAR_COLOR);
 		String carCompany = resultSet.getString(CarConstant.TABLE_CAR_COMPANY);
+		int quantity = resultSet.getInt(CarConstant.TABLE_CAR_QUANTITY);
 
-		return new Car(carId, carModel, carReleaseYear, carColor, carCompany);
+		return new Car(carId, carModel, carReleaseYear, carColor, carCompany, quantity);
 	}
 
 }

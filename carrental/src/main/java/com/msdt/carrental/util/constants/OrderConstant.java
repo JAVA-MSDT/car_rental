@@ -23,7 +23,6 @@ public class OrderConstant {
 	public static final String TABLE_ORDER_CAR_RETURNED = "car_returned";
 	public static final String TABLE_ORDER_RENTAL_COST = "rental_cost";
 
-	
 	private OrderConstant() {
 
 	}

@@ -21,7 +21,9 @@
 
 	<div
 		class="container-fluid d-flex align-items-center justify-content-center h-100 bg-success error-container">
-
+		<div class="alert alert-warning" role="alert">
+			<h1>It is better to Contact the Administration..</h1>
+		</div>
 	</div>
 </body>
 </html>

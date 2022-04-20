@@ -28,14 +28,14 @@
 		<location>/WEB-INF/pages/common/errorPage.jsp</location>
 	</error-page>
 	
-	<error-page>
+ 	<error-page>
 		<exception-type>java.lang.RuntimeException</exception-type>
 		<location>/WEB-INF/pages/common/serverError.jsp</location>
-	</error-page>
+	</error-page> 
 	<error-page>
 		<error-code>500</error-code>
 		<location>/WEB-INF/pages/common/serverError.jsp</location>
-	</error-page>
+	</error-page> 
 	
 	<jsp-config>
 		<jsp-property-group>

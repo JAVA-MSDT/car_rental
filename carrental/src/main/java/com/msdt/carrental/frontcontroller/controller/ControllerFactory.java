@@ -9,6 +9,7 @@ import com.msdt.carrental.frontcontroller.view.car.CarView;
 import com.msdt.carrental.frontcontroller.view.car.CarsController;
 import com.msdt.carrental.frontcontroller.view.common.LoginController;
 import com.msdt.carrental.frontcontroller.view.common.LogoutController;
+import com.msdt.carrental.frontcontroller.view.order.ConfirmOrderController;
 import com.msdt.carrental.frontcontroller.view.user.UsersController;
 import com.msdt.carrental.model.config.DBConnection;
 import com.msdt.carrental.model.config.DBTestConfig;
@@ -43,6 +44,8 @@ public class ControllerFactory{
 			return new LogoutController();
 		case ControllerConstant.VIEW_CAR_CONTROLLER:
 			return new CarView(serviceFactory.getCarService());
+		case ControllerConstant.CONFIRM_ORDER_CONTROLLER:
+			return new ConfirmOrderController(serviceFactory.getOrderService(), serviceFactory.getCarService());
 		default:
 		}
 		

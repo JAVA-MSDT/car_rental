@@ -15,6 +15,9 @@ public class ControllerConstant {
 	public static final String LOGOUT_CONTROLLER = "logout";
 	public static final String VIEW_CAR_CONTROLLER = "viewCar";
 	
+	// User Controller
+	public static final String CONFIRM_ORDER_CONTROLLER = "confirmOrder";
+	
 	// Administration Controller
 	public static final String USERS_CONTROLLER = "users";
 
@@ -43,6 +46,9 @@ public class ControllerConstant {
 	public static final String CARS_RESPONSE = "cars";
 	public static final String CAR_RESPONSE = "car";
 	public static final String USERS_RESPONSE = "users";
+	
+	public static final String ORDER_SAVED = "orderSaved";
+	public static final String ORDER_FAILED = "orderFailed";
 	
 	private ControllerConstant() {
 

@@ -30,13 +30,13 @@ public class AuthController implements Filter {
 
 	private static final List<String> PUBLIC_CONTROLLER = Arrays.asList(ControllerConstant.BLOG_CONTROLLER,
 			ControllerConstant.ABOUT_CONTROLLER, ControllerConstant.NEWS_CONTROLLER, ControllerConstant.CARS_CONTROLLER,
-			ControllerConstant.LOGIN_CONTROLLER, ControllerConstant.LOGOUT_CONTROLLER, ControllerConstant.VIEW_CAR_CONTROLLER);
+			ControllerConstant.LOGIN_CONTROLLER, ControllerConstant.LOGOUT_CONTROLLER,
+			ControllerConstant.VIEW_CAR_CONTROLLER);
 
-	private static final List<String> ADMINISTRATION_CONTROLLER = Arrays.asList(ControllerConstant.USERS_CONTROLLER);
+	private static final List<String> ADMINISTRATION_CONTROLLER = Arrays.asList(ControllerConstant.USERS_CONTROLLER,
+			ControllerConstant.CONFIRM_ORDER_CONTROLLER);
 
-	private static final List<String> USER_CONTROLLER = Arrays.asList(
-	// ControllerConstant.USERS_CONTROLLER
-	);
+	private static final List<String> USER_CONTROLLER = Arrays.asList(ControllerConstant.CONFIRM_ORDER_CONTROLLER);
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
